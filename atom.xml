@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu的小屋</title>
-    <updated>2020-10-09T13:54:41.958Z</updated>
+    <updated>2020-10-10T01:22:35.466Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>https://BlueSu007.github.io/images/avatar.png</logo>
     <icon>https://BlueSu007.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BlueSu的小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[CSP 2020 J1 游记]]></title>
+        <id>https://BlueSu007.github.io/post/csp-2020-j1-you-ji/</id>
+        <link href="https://BlueSu007.github.io/post/csp-2020-j1-you-ji/">
+        </link>
+        <updated>2020-10-10T01:13:28.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="day-1">Day -1</h3>
+<p>颓了大半天，一本通上的模拟题做了67，往年的题70，但是今年要提高分数线，所以感觉悬了点😱</p>
+<h3 id="day-0">Day 0</h3>
+<p>发现今天打卡是232，那么明天是……233！🤣（至少不是114514（雾🤢</p>
+<p>现在9:15，BlueSu要去做题惹😜</p>
+<p>也不知道该做什么题，就是2019和近几年的好好看看错题，多写几道图论模拟动归之类的😄</p>
+<p>至少不能再颓废了😂</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[About Me]]></title>
         <id>https://BlueSu007.github.io/post/about/</id>
