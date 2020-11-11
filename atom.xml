@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu的小屋</title>
-    <updated>2020-11-02T02:18:47.016Z</updated>
+    <updated>2020-11-11T12:28:13.335Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
@@ -10,6 +10,64 @@
     <logo>https://BlueSu007.github.io/images/avatar.png</logo>
     <icon>https://BlueSu007.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BlueSu的小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[priority queue & monotone queue]]></title>
+        <id>https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/</id>
+        <link href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/">
+        </link>
+        <updated>2020-11-11T12:11:13.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="priority-queue">priority queue</h3>
+<h4 id="stl">STL</h4>
+<ul>
+<li>
+<p>Use type <code>priority_queue</code> in STL header <code>&lt;queue&gt;</code></p>
+</li>
+<li>
+<p>It will auto make the number in queue keep in a seriation, auto Z -&gt; A</p>
+</li>
+<li>
+<p>If you want A -&gt; Z, add: <code>priorirty_queue &lt; int , vector &lt; int &gt; , greater &lt; int &gt; &gt; que ;</code></p>
+</li>
+</ul>
+<h4 id="array">array</h4>
+<ul>
+<li>
+<p>Use heap</p>
+</li>
+<li>
+<p>If A -&gt; Z, small-root-heap</p>
+</li>
+<li>
+<p>If Z -&gt; A, big-root-heap</p>
+</li>
+<li>
+<p>It's a little bit difficult, so in examination, we also use STL</p>
+</li>
+</ul>
+<h3 id="monotone-queue">monotone queue</h3>
+<h3 id="stl-2">STL</h3>
+<ul>
+<li>
+<p>Use type <code>deque</code> in STL header <code>&lt;deque&gt;</code></p>
+</li>
+<li>
+<p>It can support you move number in head and tail</p>
+</li>
+<li>
+<p>queue head: <code>que.begin ()</code> ; queue tail: <code>que.end ()</code></p>
+</li>
+<li>
+<p>push front: <code>que.push_front ()</code> ; push back: <code>que.push_back ()</code></p>
+</li>
+<li>
+<p>Examinations</p>
+<ul>
+<li>Luogu P1886 Windows move / [TESTFOR] monotone queue: Use monotone queue maintain the sequence, sort by A -&gt; Z.</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CSP 2020 J1 游记]]></title>
         <id>https://BlueSu007.github.io/post/csp-2020-j1-you-ji/</id>
