@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu的小屋</title>
-    <updated>2020-11-11T12:28:13.335Z</updated>
+    <updated>2020-11-11T12:41:52.544Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
@@ -16,89 +16,6 @@
         <link href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/">
         </link>
         <updated>2020-11-11T12:11:13.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="priority-queue">priority queue</h3>
-<h4 id="stl">STL</h4>
-<ul>
-<li>
-<p>Use type <code>priority_queue</code> in STL header <code>&lt;queue&gt;</code></p>
-</li>
-<li>
-<p>It will auto make the number in queue keep in a seriation, auto Z -&gt; A</p>
-</li>
-<li>
-<p>If you want A -&gt; Z, add: <code>priorirty_queue &lt; int , vector &lt; int &gt; , greater &lt; int &gt; &gt; que ;</code></p>
-</li>
-</ul>
-<h4 id="array">array</h4>
-<ul>
-<li>
-<p>Use heap</p>
-</li>
-<li>
-<p>If A -&gt; Z, small-root-heap</p>
-</li>
-<li>
-<p>If Z -&gt; A, big-root-heap</p>
-</li>
-<li>
-<p>It's a little bit difficult, so in examination, we also use STL</p>
-</li>
-</ul>
-<h3 id="monotone-queue">monotone queue</h3>
-<h3 id="stl-2">STL</h3>
-<ul>
-<li>
-<p>Use type <code>deque</code> in STL header <code>&lt;deque&gt;</code></p>
-</li>
-<li>
-<p>It can support you move number in head and tail</p>
-</li>
-<li>
-<p>queue head: <code>que.begin ()</code> ; queue tail: <code>que.end ()</code></p>
-</li>
-<li>
-<p>push front: <code>que.push_front ()</code> ; push back: <code>que.push_back ()</code></p>
-</li>
-<li>
-<p>Examinations</p>
-<ul>
-<li>Luogu P1886 Windows move / [TESTFOR] monotone queue: Use monotone queue maintain the sequence, sort by A -&gt; Z.</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CSP 2020 J1 游记]]></title>
-        <id>https://BlueSu007.github.io/post/csp-2020-j1-you-ji/</id>
-        <link href="https://BlueSu007.github.io/post/csp-2020-j1-you-ji/">
-        </link>
-        <updated>2020-10-10T01:13:28.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="day-2">Day -2</h3>
-<p>颓了大半天，一本通上的模拟题做了67，往年的题70，但是今年要提高分数线，所以感觉悬了点😱</p>
-<h3 id="day-1">Day -1</h3>
-<p>发现今天打卡是232，那么明天是……233！🤣（至少不是114514（雾🤢</p>
-<p>现在9:15，BlueSu要去做题惹😜</p>
-<p>也不知道该做什么题，就是2019和近几年的好好看看错题，多写几道图论模拟动归之类的😄</p>
-<p>至少不能再颓废了😂</p>
-<hr>
-<p>现在15:41，还行，今天颓废时间不到10min，天道酬勤，听天由命😏</p>
-<p>已经整理了两套模拟卷的错题，打算做几道编程题进入状态再继续弄（还有两套没有整理😭</p>
-<p>别指望明天了，今天晚上把第五套模拟卷干完吧💪</p>
-<h3 id="day-0">Day 0</h3>
-<p>早上TG开考了我才起床，早饭吃的饺子，水了会洛谷，扫了两眼错题笔记就开始颓废。🙃</p>
-<p>12:40左右出发。路上很堵，不太舒服。提前进考场没有认识的人。（话说我在八十中提着个笑脸透明塑料袋还挺明显的，而且风衣的颜色很鲜艳也很显眼，纯色的，胳膊上有白字）😕</p>
-<p>14:30开考。提前发了卷子，对自己很有信心。选择题没有很难的，有一道数学不太确定，两道程序很懵。接着阅读程序写结果更加迷惑，我只好问三个问题来稳定自己：我是谁？我在哪？我在干什么？😣</p>
-<p>第一个字符串还好，模拟起来不算费事。第二个大数字没有模拟，凭感觉选的（雾。第三个DFS匆匆略过，因为此时只剩大概1h了（其实时间足够，就是脑子不够用了怕程序填空出错）。😖</p>
-<p>程序填空感觉良好，第一个分解质因数送分的，第二个贪心还行。🤓</p>
-<hr>
-<p>回家的路上老爸疯狂飙车，看了一次火烧云，配着《初雪》这首优美的钢琴曲回家了。老妈也挺高兴，说回家炒蛤蜊煮大虾😍</p>
-<p>吃完饭，测了一下，67.5，感觉还行⑧😇</p>
-<p>最怕的可能就是答题卡写串行了，因为最后20min没有检查，直接发呆愣神颓废睡觉就过去了……😫</p>
-<h3 id="day-1-2">Day 1</h3>
-<p>在泥土笨笨的犇犇里看到了成绩，分数线55+，我66.5，通过石锤！😏</p>
-<p>把我高兴的，奖学金100元记账！🤑</p>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[About Me]]></title>
@@ -106,20 +23,5 @@
         <link href="https://BlueSu007.github.io/post/about/">
         </link>
         <updated>2019-01-25T11:09:48.000Z</updated>
-        <content type="html"><![CDATA[<blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>这是我的第一个洛谷站外博客。由于用户名BlueSu已经在GitHub上使用过了，所以只能叫BlueSu007。</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<p>你觉得呢？</p>
-<p>我觉得目前为止好像全洛谷只有那么不到2个活跃的人认识我呢（指面基过</p>
-<p>好吧，我是个OIer，即将退役的OIer，坐标BJ，距离初赛只有一天而仍在颓废的OIer</p>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<p>写代码、听歌、画画、弹琴、吹笛子、写文章……</p>
-<p>当然还有养鱼🐠🐟🐡🐬🦈🐳🐋 和 养虾🦐　（想养螃蟹，但是怕伤害到其他鱼</p>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<p>你猜？</p>
-]]></content>
     </entry>
 </feed>
