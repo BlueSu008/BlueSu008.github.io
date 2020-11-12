@@ -2178,15 +2178,15 @@ body {
     }.box-shadow-wrapper {
       box-shadow: none !important;
     }body {
-      cursor: default;
+      cursor: url('/media/curs//media/curs/Default.jpg.cur'), default;
     }a {
-      cursor: pointer;
+      cursor: url('/media/curs//media/curs/Link.jpg.cur'), pointer !important;
     }input, textarea, code {
-      cursor: text;
+      cursor: url('/media/curs//media/curs/Text.jpg.cur'), text !important;
     }code > span.copy-code {
-      cursor: pointer;
+      cursor: url('/media/curs//media/curs/Copy.jpg.cur'), text !important;
     }.post img {
-      cursor: zoom-in;
+      cursor: url('/media/curs//media/curs/Larger.cur'), zoom-in !important;
     }.post img {
-      cursor: zoom-out;
+      cursor: url('/media/curs//media/curs/Smaller.jpg.cur'), zoom-out !important;
     }
