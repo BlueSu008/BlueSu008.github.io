@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="Back to where is rainy before, it&#39;s full of sunshine now.">
 <meta name="theme-color" content="#000">
-<title>priority queue &amp; monotone queue | BlueSu&#39;s Blog</title>
+<title>《精忠报国》填词 | BlueSu&#39;s Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1605363195739">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,8 +41,8 @@
 
 
 
-  <meta name="description" content="priority queue & monotone queue" />
-  <meta name="keywords" content="Study" />
+  <meta name="description" content="《精忠报国》填词" />
+  <meta name="keywords" content="正 能 量" />
 </head>
 
 <body>
@@ -193,8 +193,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -241,206 +240,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#priority-queue">priority queue</a>
-<ul>
-<li><a href="#stl">STL</a></li>
-<li><a href="#array">array</a></li>
-</ul>
-</li>
-<li><a href="#monotone-queue">monotone queue</a></li>
-<li><a href="#stl-2">STL</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -528,8 +327,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/">
-      priority queue &amp; monotone queue
+    <a class="post-title-link" href="https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">
+      《精忠报国》填词
     </a>
   </h1>
   <div class="post-meta">
@@ -537,7 +336,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-11-11 20:11:13">2020-11-11</span>
+      <span class="publish-time" data-t="2020-11-14 21:37:55">2020-11-14</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -546,8 +345,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://BlueSu007.github.io/tag/JboFS5Kp9/">
-        <span>Study</span>
+      <a href="https://BlueSu007.github.io/tag/IgRMtxdK5/">
+        <span>正 能 量</span>
       </a>
       
       
@@ -561,62 +360,25 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>135<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>101<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <h3 id="priority-queue">priority queue</h3>
-<h4 id="stl">STL</h4>
-<ul>
-<li>
-<p>Use type <code>priority_queue</code> in STL header <code>&lt;queue&gt;</code></p>
-</li>
-<li>
-<p>It will auto make the number in queue keep in a seriation, auto Z -&gt; A</p>
-</li>
-<li>
-<p>If you want A -&gt; Z, add: <code>priorirty_queue &lt; int , vector &lt; int &gt; , greater &lt; int &gt; &gt; que ;</code></p>
-</li>
-</ul>
-<h4 id="array">array</h4>
-<ul>
-<li>
-<p>Use heap</p>
-</li>
-<li>
-<p>If A -&gt; Z, small-root-heap</p>
-</li>
-<li>
-<p>If Z -&gt; A, big-root-heap</p>
-</li>
-<li>
-<p>It's a little bit difficult, so in examination, we also use STL</p>
-</li>
-</ul>
-<h3 id="monotone-queue">monotone queue</h3>
-<h3 id="stl-2">STL</h3>
-<ul>
-<li>
-<p>Use type <code>deque</code> in STL header <code>&lt;deque&gt;</code></p>
-</li>
-<li>
-<p>It can support you move number in head and tail</p>
-</li>
-<li>
-<p>queue head: <code>que.begin ()</code> ; queue tail: <code>que.end ()</code></p>
-</li>
-<li>
-<p>push front: <code>que.push_front ()</code> ; push back: <code>que.push_back ()</code></p>
-</li>
-<li>
-<p>Examinations</p>
-<ul>
-<li>Luogu P1886 Windows move / [TESTFOR] monotone queue: Use monotone queue maintain the sequence, sort by A -&gt; Z.</li>
-</ul>
-</li>
-</ul>
+              <p>铃声响 伏案桌上</p>
+<p>心中想 考满分 豪气震场</p>
+<p>脑似城市多繁忙</p>
+<p>十二年 正年少 谁能相抗</p>
+<p>恨欲狂 心中悲伤</p>
+<p>多少忠言逆耳弃之一方</p>
+<p>何惜失分泪汪汪</p>
+<p>忍叹惜 善总结 追寻梦想</p>
+<p>老师出门 不慌张</p>
+<p>不慌张 反侦查 把头昂</p>
+<p>我愿追寻好榜样</p>
+<p>堂堂四班要让全校</p>
+<p>来贺</p>
 
             </div>
             
@@ -629,7 +391,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/" title="priority queue &amp; monotone queue">https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/</a>
+      <a href="https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/" title="《精忠报国》填词">https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -638,21 +400,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://BlueSu007.github.io/tag/JboFS5Kp9/"># Study</a>
+      <a href="https://BlueSu007.github.io/tag/IgRMtxdK5/"># 正 能 量</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="《精忠报国》填词" href="https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">《精忠报国》填词</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="《精忠报国》填词" href="https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="About Me" href="https://BlueSu007.github.io/post/about/">About Me</a>
-        <a class="nav-mobile-next" title="About Me" href="https://BlueSu007.github.io/post/about/">下一篇</a>
+        <a class="nav-pc-next" title="priority queue &amp; monotone queue" href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/">priority queue &amp; monotone queue</a>
+        <a class="nav-mobile-next" title="priority queue &amp; monotone queue" href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
