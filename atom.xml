@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu&apos;s Blog</title>
-    <updated>2020-11-16T11:24:22.385Z</updated>
+    <updated>2020-11-16T13:58:11.732Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://BlueSu007.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BlueSu&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Binary Indexed Tree, BIT ( Single point modification, interval summation )]]></title>
+        <title type="html"><![CDATA[Binary Indexed Tree, BIT ( Single Point Modification, Interval Summation )]]></title>
         <id>https://BlueSu007.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/</id>
         <link href="https://BlueSu007.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/">
         </link>
