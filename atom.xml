@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu&apos;s Blog</title>
-    <updated>2020-11-17T14:28:42.535Z</updated>
+    <updated>2020-11-18T13:36:20.799Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://BlueSu007.github.io/images/avatar.png</logo>
     <icon>https://BlueSu007.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, BlueSu&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[《我的一个道姑朋友》填词]]></title>
+        <id>https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/</id>
+        <link href="https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/">
+        </link>
+        <updated>2020-11-18T12:49:07.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Segment Tree]]></title>
+        <id>https://BlueSu007.github.io/post/segment-tree/</id>
+        <link href="https://BlueSu007.github.io/post/segment-tree/">
+        </link>
+        <updated>2020-11-17T14:29:03.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Binary Indexed Tree, BIT ( Single Point Modification, Interval Summation )]]></title>
         <id>https://BlueSu007.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/</id>
