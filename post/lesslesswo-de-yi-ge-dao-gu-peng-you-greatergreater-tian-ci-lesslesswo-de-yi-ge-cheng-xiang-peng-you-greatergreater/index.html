@@ -9,7 +9,7 @@
 <meta name="description" content="Back to where is rainy before, it&#39;s full of sunshine now.">
 <meta name="theme-color" content="#000">
 <title>《我的一个道姑朋友》填词——《我的一个丞相朋友》 | BlueSu&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1608894991579">
+<link rel="shortcut icon" href="/favicon.ico?v=1609079090884">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -420,7 +420,7 @@
 思您过往羽扇轻摇的时候<br>
 痛失街亭<br>
 斩马谡泪光莹莹（挥泪斩马谡）<br>
-望你白衣如旧 仍然安睡庐中<br>
+望您白衣如旧 仍然安睡庐中<br>
 谁知我心惶恐</p>
 <p>七星灯灭五丈原秋风（秋风五丈原）<br>
 羽扇缓落坠入尘埃中<br>
@@ -1549,7 +1549,7 @@
 思您过往羽扇轻摇的时候&lt;br&gt;
 痛失街亭&lt;br&gt;
 斩马谡泪光莹莹（挥泪斩马谡）&lt;br&gt;
-望你白衣如旧 仍然安睡庐中&lt;br&gt;
+望您白衣如旧 仍然安睡庐中&lt;br&gt;
 谁知我心惶恐&lt;/p&gt;
 &lt;p&gt;七星灯灭五丈原秋风（秋风五丈原）&lt;br&gt;
 羽扇缓落坠入尘埃中&lt;br&gt;
@@ -1653,7 +1653,126 @@
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://BlueSu007.github.io/post/segment-tree/"" data-c="
-          &lt;h3 id=&#34;&#34;&gt;&lt;/h3&gt;
+          &lt;h3 id=&#34;why-to-use&#34;&gt;Why to use&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It can handle more kind of query and modification, but, it is &lt;strong&gt;not&lt;/strong&gt; faster than BIT ( Binary Indexed Tree ).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Although the code is longer than BIT ( BIT: 50+ ~ 60- lines ; Segment Tree: 130+ lines ), but the &lt;strong&gt;code structure&lt;/strong&gt; is very clear. That means, if you realy know what it works,  you can type the code &lt;strong&gt;easily&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;diffrence-of-them&#34;&gt;Diffrence of them&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;For exanple, Single Point Modification, Interval Summation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use BIT to solve this problem:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;CodeLenth    Time       Memory&lt;br&gt;
+1.03KB           543ms    4.36MB&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use Segment Tree to solve this problem:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;CodeLenth    Time       Memory&lt;br&gt;
+2.91KB           377ms    9.61MB&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It seems that Segment Tree is just faster than BIT a little bit, except that, Segment Tree need the double memory of BIT, and nearly triple code lines.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You may think Segment Tree is useless; but if you realy know it, you&#39;ll love it forever.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;segment-tree&#34;&gt;Segment Tree&lt;/h3&gt;
+&lt;h4 id=&#34;structure&#34;&gt;Structure&lt;/h4&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://i.loli.net/2020/12/27/GSQ6f79ymaBFcwW.png&#34; alt=&#34;image.png&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;The most fundamental thought of Segment Tree is, sort the big interval into small interval, then modify &amp;amp; query on these small interval.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;build-tree&#34;&gt;Build Tree&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The process of sorting can build a tree. So now we think: every point on this tree have got what information ?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;First, the &lt;strong&gt;leftbound&lt;/strong&gt; and &lt;strong&gt;rightbound&lt;/strong&gt; of the interval that it was sorted. Second, the &lt;strong&gt;sum of the interval&lt;/strong&gt; ( interval summation ). Third, the &lt;strong&gt;leftchild&lt;/strong&gt; and &lt;strong&gt;rightchild&lt;/strong&gt; of this point. Of course, if this point is a leave, it nether got a leftchild nor rightchild.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the code, we use array &lt;code&gt;leftn&lt;/code&gt; to store leftbound of the point, use array &lt;code&gt;rightn&lt;/code&gt; to store rightbound of the point. Use &lt;code&gt;sum&lt;/code&gt; to store interval summation, and &lt;code&gt;k &amp;lt;&amp;lt; 1&lt;/code&gt; means leftchild&#39;s array index, &lt;code&gt;k &amp;lt;&amp;lt; 1 | 1&lt;/code&gt; means rightchild&#39;s array index.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The time complexity of the part is &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;O ( \log n )&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1em;vertical-align:-0.25em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.02778em;&#34;&gt;O&lt;/span&gt;&lt;span class=&#34;mopen&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;mclose&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, also, the high of tree is &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\log n&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; too.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;Code&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;inline void build ( int k , int leftbound , int rightbound ) {
+    leftn[k] = leftbound , rightn[k] = rightbound ;
+    if ( leftbound == rightbound ){
+        sum[k] = a[leftn[k]] ;
+        return ;
+    }
+
+    int mid = ( leftn[k] + rightn[k] ) &amp;gt;&amp;gt; 1 ;
+    build ( k &amp;lt;&amp;lt; 1 , leftn[k] , mid ) ;
+    build ( k &amp;lt;&amp;lt; 1 | 1 , mid + 1 , rightn[k] ) ;
+
+    sum[k] = sum[k &amp;lt;&amp;lt; 1] + sum[k &amp;lt;&amp;lt; 1 | 1] ;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;interval-summation-single-point-modification&#34;&gt;Interval Summation, Single point Modification&lt;/h4&gt;
+&lt;h5 id=&#34;single-point-modification&#34;&gt;Single point Modification&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Every time we modify a single point, we go down from the &lt;strong&gt;root point&lt;/strong&gt;, find the element ( it&#39;s a point on the tree ) that we need to modify and modify it. When it was modified, we go up from this point and update every &lt;strong&gt;father point&#39;s&lt;/strong&gt; interval summation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Because of the tree-height is &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;log&lt;/mi&gt;&lt;mo&gt;⁡&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\log n&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mop&#34;&gt;lo&lt;span style=&#34;margin-right:0.01389em;&#34;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.16666666666666666em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, and every time we modify need go down once and go up once, so the time complexity of this part is $ O ( \log n ) $.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;Code&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;inline void update ( int k , int leftbound , int rightbound , long long x ) {
+    if ( leftbound &amp;lt;= leftn[k] &amp;amp;&amp;amp; rightn[k] &amp;lt;= rightbound ) {
+        sum[k] += x ;
+        return ;
+    }
+
+    int mid = ( leftn[k] + rightn[k] ) &amp;gt;&amp;gt; 1 ;
+    if ( leftbound &amp;lt;= mid ) {
+        update ( k &amp;lt;&amp;lt; 1 , leftbound , rightbound , x ) ;
+    }
+    if ( mid + 1 &amp;lt;= rightbound ) {
+        update ( k &amp;lt;&amp;lt; 1 | 1 , leftbound , rightbound , x ) ;
+    }
+
+    sum[k] = sum[k &amp;lt;&amp;lt; 1] + sum[k &amp;lt;&amp;lt; 1 | 1] ;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;interval-summation&#34;&gt;Interval Summation&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Like the part before, we need go down to find the element which in the interval that we query, and collect answer when go down.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;Code&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.07153em;&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;o&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;e&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;inline long long query ( int k , int leftbound , int rightbound ) {
+    if ( leftbound &amp;lt;= leftn[k] &amp;amp;&amp;amp; rightn[k] &amp;lt;= rightbound ) {
+        return sum[k] ;
+    }
+
+    long long ans = 0 ;
+    int mid = ( leftn[k] + rightn[k] ) &amp;gt;&amp;gt; 1 ;
+
+    if ( leftbound &amp;lt;= mid ) {
+        ans += query ( k &amp;lt;&amp;lt; 1 , leftbound , rightbound ) ;
+    }
+    if ( mid + 1 &amp;lt;= rightbound ) {
+        ans += query ( k &amp;lt;&amp;lt; 1 | 1 , leftbound , rightbound ) ;
+    }
+
+    return ans ;
+}
+&lt;/code&gt;&lt;/pre&gt;
 ">Segment Tree</a>
       </div>
       
@@ -1859,7 +1978,7 @@
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://BlueSu007.github.io/post/priority-queue-and-monotone-queue/"" data-c="
-          &lt;h3 id=&#34;priority-queue&#34;&gt;priority queue&lt;/h3&gt;
+          &lt;h3 id=&#34;priority-queue&#34;&gt;Priority Queue&lt;/h3&gt;
 &lt;h4 id=&#34;stl&#34;&gt;STL&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1872,7 +1991,7 @@
 &lt;p&gt;If you want A -&amp;gt; Z, add: &lt;code&gt;priorirty_queue &amp;lt; int , vector &amp;lt; int &amp;gt; , greater &amp;lt; int &amp;gt; &amp;gt; que ;&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;array&#34;&gt;array&lt;/h4&gt;
+&lt;h4 id=&#34;array&#34;&gt;Array&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Use heap&lt;/p&gt;
@@ -1887,7 +2006,7 @@
 &lt;p&gt;It&#39;s a little bit difficult, so in examination, we also use STL&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;monotone-queue&#34;&gt;monotone queue&lt;/h3&gt;
+&lt;h3 id=&#34;monotone-queue&#34;&gt;Monotone Queue&lt;/h3&gt;
 &lt;h3 id=&#34;stl-2&#34;&gt;STL&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1909,7 +2028,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-">priority queue & monotone queue</a>
+">Priority Queue & Monotone Queue</a>
       </div>
       
       <div class="item">
