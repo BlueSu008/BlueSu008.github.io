@@ -2,14 +2,21 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu007.github.io</id>
     <title>BlueSu&apos;s Blog</title>
-    <updated>2020-12-29T11:55:21.959Z</updated>
+    <updated>2021-01-04T11:51:48.389Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu007.github.io"/>
     <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
     <subtitle>Back to where is rainy before, it&apos;s full of sunshine now.</subtitle>
     <logo>https://BlueSu007.github.io/images/avatar.png</logo>
     <icon>https://BlueSu007.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, BlueSu&apos;s Blog</rights>
+    <rights>All rights reserved 2021, BlueSu&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Dynamic Programming, DP]]></title>
+        <id>https://BlueSu007.github.io/post/dynamic-programming-dp/</id>
+        <link href="https://BlueSu007.github.io/post/dynamic-programming-dp/">
+        </link>
+        <updated>2021-01-04T11:33:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[写歌项目]]></title>
         <id>https://BlueSu007.github.io/post/xie-ge-xiang-mu/</id>
