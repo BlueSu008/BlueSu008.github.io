@@ -9,7 +9,7 @@
 <meta name="description" content="Back to where is rainy before, it&#39;s full of sunshine now.">
 <meta name="theme-color" content="#000">
 <title>BlueSu&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1609761096222">
+<link rel="shortcut icon" href="/favicon.ico?v=1609932681032">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -193,7 +193,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-count">10</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -270,6 +270,8 @@
         
       
         
+      
+        
           
             
       
@@ -308,6 +310,8 @@
         
       
         
+      
+        
           
         
       
@@ -342,6 +346,8 @@
       <a class="cloud-tag" href="https://BlueSu007.github.io/tag/JboFS5Kp9/" rel="3">Study</a>
     
       
+      
+        
       
         
       
@@ -1189,6 +1195,23 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://BlueSu007.github.io/post/the-functions-usage/"" data-c="
+          &lt;h3 id=&#34;memset&#34;&gt;Memset&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;memset ( a , 0 , sizeof (a) )&lt;/code&gt;: Set array &lt;code&gt;a&lt;/code&gt; to &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;0&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;memset ( a , -1 , sizeof (a) )&lt;/code&gt;: Set array &lt;code&gt;a&lt;/code&gt; to &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;-1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.72777em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;memset ( a , 0x3f , sizeof (a) )&lt;/code&gt;: Set array &lt;code&gt;a&lt;/code&gt; to &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;∞&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+">The Function's Usage</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://BlueSu007.github.io/post/dynamic-programming-dp/"" data-c="
           &lt;h3 id=&#34;basic-concept&#34;&gt;Basic Concept&lt;/h3&gt;
 &lt;h4 id=&#34;some-questions&#34;&gt;Some Questions&lt;/h4&gt;
@@ -1207,6 +1230,58 @@
 &lt;li&gt;How can we use the limited memory to store informations as much as we can? ( Memoried search also can give help to this problem )&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;the-condition&#34;&gt;The Condition&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;We can sort the condition into more and more small condition. The process that we sort the condition is called &amp;quot;divide-and-conquer&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The judge of condition is the most basic thing of DP. So, the every possible route that we are able to meet, we called it &amp;quot;condition&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The new condition is get by update the old condition. For exanple, while we need &lt;code&gt;f[x]&lt;/code&gt;, we may need &lt;code&gt;f[x - 1]&lt;/code&gt; or &lt;code&gt;f[x - 2]&lt;/code&gt; or both or more.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;the-transfer&#34;&gt;The Transfer&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;State transfer equation means, the old condition how to transfer to the new one.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can simplely thought that state-transfer-equation is a rule, to guide the code how to calculate the right answer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;small-summary&#34;&gt;Small Summary&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To see the two part before, we can make a summary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First of all, we need to design a condition. We use condition to show every problem.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Secondly, we write the state-transfer-equation, use the small problem&#39;s solution to get the big problem&#39;s solution.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;some-skip&#34;&gt;Some Skip&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;While you are thinking about state-transfer-equation, you can think about: where should I go in the next step? This question can help you solve DP problem. We called this kind of thought &amp;quot;push&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Opposite of the thought before, &amp;quot;pull&amp;quot; thought is think where did I come. These two thought both can help you.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Who I am?&lt;br&gt;
+Where did I come?&lt;br&gt;
+Where should I go?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;You should ask yourself these questions when you solve DP.&lt;/li&gt;
 &lt;/ul&gt;
 ">Dynamic Programming, DP</a>
       </div>
