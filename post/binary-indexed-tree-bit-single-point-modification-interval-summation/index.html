@@ -9,7 +9,7 @@
 <meta name="description" content="Back to where is rainy before, it&#39;s full of sunshine now.">
 <meta name="theme-color" content="#000">
 <title>Binary Indexed Tree, BIT ( Single Point Modification, Interval Summation ) | BlueSu&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1609932681032">
+<link rel="shortcut icon" href="/favicon.ico?v=1610076884982">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -1871,6 +1871,21 @@
 &lt;p&gt;&lt;code&gt;memset ( a , 0x3f , sizeof (a) )&lt;/code&gt;: Set array &lt;code&gt;a&lt;/code&gt; to &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;∞&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;∞&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.43056em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;define-typedef&#34;&gt;Define &amp;amp; Typedef&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If it&#39;s not nessecery, &lt;strong&gt;DO NOT USE DEFINE&lt;/strong&gt;, because it will make some problem that you can&#39;t think for.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MUST NOT&lt;/strong&gt; use define to write the function like &lt;code&gt;min ( a , b )&lt;/code&gt;, because if you use it like &lt;code&gt;min ( a (x) , b (x) )&lt;/code&gt;, if &lt;code&gt;a (x)&lt;/code&gt; is smaller than &lt;code&gt;b (x)&lt;/code&gt;, &lt;code&gt;a (x)&lt;/code&gt; will be calculate for two times, it&#39;s much slow than the STL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you want to write the type &lt;code&gt;long long&lt;/code&gt; in another way, don&#39;t use &lt;code&gt;#define int long long&lt;/code&gt;, use this:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;typedef long long ll&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 ">The Function's Usage</a>
       </div>
       
@@ -2266,6 +2281,27 @@ Where should I go?&lt;/p&gt;
 &lt;h5 id=&#34;preface&#34;&gt;Preface&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;Interval modification, this operation has got a characteristic - that is, this operation use the same rule to modify the elements in this interval. So we just need tell a point on the tree: we need to do the same operation to modify the elements in your interval. &lt;strong&gt;And then, we mark this opearation, we do it when we need it.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;more-simple-description&#34;&gt;More Simple Description&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;For exanple, if you want to do add 3 and add 5 these two operation. If don&#39;t use lazy tag, we need to update the sub-tree twice - that means, to every operation, we need do it when we get the instruction.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;So, if we update the segment tree like the programme before, we&#39;re wasted a lot of time, the time complexity is very high. The function of lazy tag is, when we get the instruction add 3, we just put it in the tag, when we need to get the sum of the interval, we do the calculation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And, if we get another instruction, we just add it into the [interval that we need to update]&#39;s lazy tag.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;nearly-the-code&#34;&gt;Nearly The Code&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The translate of lazytag just like the DP equation. To the different problem, we need different translate equation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Simplely, we have some fixed translate equation. You can see it like a rule.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 ">Segment Tree</a>
       </div>
