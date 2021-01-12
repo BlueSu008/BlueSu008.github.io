@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://BlueSu008.github.io</id>
+    <id>https://BlueSu007.github.io</id>
     <title>BlueSu&apos;s Blog</title>
-    <updated>2021-01-12T12:28:09.005Z</updated>
+    <updated>2021-01-12T12:56:53.038Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://BlueSu008.github.io"/>
-    <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
+    <link rel="alternate" href="https://BlueSu007.github.io"/>
+    <link rel="self" href="https://BlueSu007.github.io/atom.xml"/>
     <subtitle>Back to where is rainy before, it&apos;s full of sunshine now.</subtitle>
-    <logo>https://BlueSu008.github.io/images/avatar.png</logo>
-    <icon>https://BlueSu008.github.io/favicon.ico</icon>
+    <logo>https://BlueSu007.github.io/images/avatar.png</logo>
+    <icon>https://BlueSu007.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[《不老梦》填词——《草庐梦》]]></title>
-        <id>https://BlueSu008.github.io/post/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/</id>
-        <link href="https://BlueSu008.github.io/post/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/">
+        <id>https://BlueSu007.github.io/post/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/</id>
+        <link href="https://BlueSu007.github.io/post/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/">
         </link>
         <updated>2021-01-11T11:14:54.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[收录集]]></title>
-        <id>https://BlueSu008.github.io/post/shou-lu-ji/</id>
-        <link href="https://BlueSu008.github.io/post/shou-lu-ji/">
+        <id>https://BlueSu007.github.io/post/shou-lu-ji/</id>
+        <link href="https://BlueSu007.github.io/post/shou-lu-ji/">
         </link>
         <updated>2021-01-09T08:55:49.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Function's Usage]]></title>
-        <id>https://BlueSu008.github.io/post/the-functions-usage/</id>
-        <link href="https://BlueSu008.github.io/post/the-functions-usage/">
+        <id>https://BlueSu007.github.io/post/the-functions-usage/</id>
+        <link href="https://BlueSu007.github.io/post/the-functions-usage/">
         </link>
         <updated>2021-01-06T11:22:28.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Dynamic Programming, DP]]></title>
-        <id>https://BlueSu008.github.io/post/dynamic-programming-dp/</id>
-        <link href="https://BlueSu008.github.io/post/dynamic-programming-dp/">
+        <id>https://BlueSu007.github.io/post/dynamic-programming-dp/</id>
+        <link href="https://BlueSu007.github.io/post/dynamic-programming-dp/">
         </link>
         <updated>2021-01-04T11:33:55.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[写歌项目]]></title>
-        <id>https://BlueSu008.github.io/post/xie-ge-xiang-mu/</id>
-        <link href="https://BlueSu008.github.io/post/xie-ge-xiang-mu/">
+        <id>https://BlueSu007.github.io/post/xie-ge-xiang-mu/</id>
+        <link href="https://BlueSu007.github.io/post/xie-ge-xiang-mu/">
         </link>
         <updated>2020-12-27T14:31:12.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[《我的一个道姑朋友》填词——《我的一个丞相朋友》]]></title>
-        <id>https://BlueSu008.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci-lesslesswo-de-yi-ge-cheng-xiang-peng-you-greatergreater/</id>
-        <link href="https://BlueSu008.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci-lesslesswo-de-yi-ge-cheng-xiang-peng-you-greatergreater/">
+        <id>https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci-lesslesswo-de-yi-ge-cheng-xiang-peng-you-greatergreater/</id>
+        <link href="https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci-lesslesswo-de-yi-ge-cheng-xiang-peng-you-greatergreater/">
         </link>
         <updated>2020-12-25T08:04:39.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[《我的一个道姑朋友》填词——《我的一个小学同学》]]></title>
-        <id>https://BlueSu008.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/">
+        <id>https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/</id>
+        <link href="https://BlueSu007.github.io/post/lesslesswo-de-yi-ge-dao-gu-peng-you-greatergreater-tian-ci/">
         </link>
         <updated>2020-11-18T12:49:07.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Segment Tree]]></title>
-        <id>https://BlueSu008.github.io/post/segment-tree/</id>
-        <link href="https://BlueSu008.github.io/post/segment-tree/">
+        <id>https://BlueSu007.github.io/post/segment-tree/</id>
+        <link href="https://BlueSu007.github.io/post/segment-tree/">
         </link>
         <updated>2020-11-17T14:29:03.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Binary Indexed Tree, BIT ( Single Point Modification, Interval Summation )]]></title>
-        <id>https://BlueSu008.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/</id>
-        <link href="https://BlueSu008.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/">
+        <id>https://BlueSu007.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/</id>
+        <link href="https://BlueSu007.github.io/post/binary-indexed-tree-bit-single-point-modification-interval-summation/">
         </link>
         <updated>2020-11-15T03:06:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[《精忠报国》填词——《正能量屋》]]></title>
-        <id>https://BlueSu008.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">
+        <id>https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/</id>
+        <link href="https://BlueSu007.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">
         </link>
         <updated>2020-11-14T13:37:55.000Z</updated>
     </entry>
