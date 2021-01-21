@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-01-16T03:56:56.476Z</updated>
+    <updated>2021-01-21T13:40:08.015Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[《天行九歌》填词——《醉行酒歌》]]></title>
+        <id>https://BlueSu008.github.io/post/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/</id>
+        <link href="https://BlueSu008.github.io/post/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/">
+        </link>
+        <updated>2021-01-17T10:04:40.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[《听我说谢谢你》填词——《贯老师训练你》]]></title>
         <id>https://BlueSu008.github.io/post/lesslessting-wo-shuo-xie-xie-ni-greatergreater-tian-ci-lesslessguan-lao-shi-xun-lian-ni-greatergreater/</id>
@@ -25,7 +32,7 @@
         <updated>2021-01-16T02:22:43.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[《长夜雨》填词]]></title>
+        <title type="html"><![CDATA[《长夜雨》填词——《风云雨》]]></title>
         <id>https://BlueSu008.github.io/post/lesslesschang-ye-yu-greatergreater-tian-ci/</id>
         <link href="https://BlueSu008.github.io/post/lesslesschang-ye-yu-greatergreater-tian-ci/">
         </link>
@@ -72,12 +79,5 @@
         <link href="https://BlueSu008.github.io/post/lesslessjing-zhong-bao-guo-greatergreater-tian-ci/">
         </link>
         <updated>2020-11-14T13:37:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于我]]></title>
-        <id>https://BlueSu008.github.io/post/about/</id>
-        <link href="https://BlueSu008.github.io/post/about/">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
     </entry>
 </feed>
