@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-02-15T01:34:57.132Z</updated>
+    <updated>2021-03-07T15:11:29.362Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[《九九八十一》填词——三国谋士篇（CP版）]]></title>
+        <id>https://BlueSu008.github.io/wJ0tnMGey/</id>
+        <link href="https://BlueSu008.github.io/wJ0tnMGey/">
+        </link>
+        <updated>2021-03-06T15:18:10.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[思辰笔记]]></title>
         <id>https://BlueSu008.github.io/si-chen-bi-ji/</id>
@@ -39,18 +46,11 @@
         <updated>2021-01-16T03:07:11.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[《栖凰》填词——《东坡》]]></title>
+        <title type="html"><![CDATA[《栖凰》填词——《彷徨》]]></title>
         <id>https://BlueSu008.github.io/lesslessqi-huang-greatergreater-tian-ci/</id>
         <link href="https://BlueSu008.github.io/lesslessqi-huang-greatergreater-tian-ci/">
         </link>
         <updated>2021-01-16T02:22:43.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《长夜雨》填词]]></title>
-        <id>https://BlueSu008.github.io/lesslesschang-ye-yu-greatergreater-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/lesslesschang-ye-yu-greatergreater-tian-ci/">
-        </link>
-        <updated>2021-01-16T02:12:15.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[《不老梦》填词——《草庐梦》]]></title>
