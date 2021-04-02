@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="回首向来萧瑟处，归去，也无风雨也无晴。">
 <meta name="theme-color" content="#000">
-<title>《栖凰》填词——《彷徨》 | BlueSu 的博客</title>
+<title>《算法导论》学习笔记 | BlueSu 的博客</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1617378731035">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,7 +41,7 @@
 
 
 
-  <meta name="description" content="《栖凰》填词——《彷徨》" />
+  <meta name="description" content="《算法导论》学习笔记" />
   <meta name="keywords" content="" />
 </head>
 
@@ -193,7 +193,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -259,6 +260,211 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">第一部分 基础知识</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80">第二章 算法基础</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%BE%AA%E7%8E%AF%E4%B8%8D%E5%8F%98%E5%BC%8F%E8%AF%81%E6%98%8E%E7%AE%97%E6%B3%95%E6%AD%A3%E7%A1%AE%E6%80%A7">使用循环不变式证明算法正确性</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E7%AE%97%E6%B3%95%E6%B5%85%E8%B0%88%E5%88%86%E6%B2%BB">设计算法：浅谈分治</a>
+<ul>
+<li><a href="#%E5%88%86%E6%B2%BB%E4%B8%89%E9%83%A8%E6%9B%B2">分治三部曲</a></li>
+<li><a href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">归并排序</a>
+<ul>
+<li><a href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E6%93%8D%E4%BD%9C">归并排序的操作</a></li>
+<li><a href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7">归并排序的正确性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%80%9D%E8%80%83%E9%A2%98%E5%9C%A8%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E4%B8%AD%E5%AF%B9%E5%B0%8F%E6%95%B0%E7%BB%84%E9%87%87%E7%94%A8%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">思考题：在归并排序中对小数组采用插入排序</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -346,8 +552,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://BlueSu008.github.io/lesslessqi-huang-greatergreater-tian-ci/">
-      《栖凰》填词——《彷徨》
+    <a class="post-title-link" href="https://BlueSu008.github.io/lesslesssuan-fa-dao-lun-greatergreater-xue-xi-bi-ji/">
+      《算法导论》学习笔记
     </a>
   </h1>
   <div class="post-meta">
@@ -355,23 +561,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-01-16 10:22:43">2021-01-16</span>
+      <span class="publish-time" data-t="2021-04-01 21:29:36">2021-04-01</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>4<span class="language" data-lan="minute">分钟</span></span>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>968<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1196<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/lesslessqi-huang-greatergreater-tian-ci/" data-flag-title="《栖凰》填词——《彷徨》" class="meta-item pc-show leancloud_visitors">
+    <span id="/lesslesssuan-fa-dao-lun-greatergreater-xue-xi-bi-ji/" data-flag-title="《算法导论》学习笔记" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -380,58 +586,68 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>壬戌七月既望 （《赤壁赋》：壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。）</p>
-<p>月出东山之上（《赤壁赋》：少焉，月出于东山之上，徘徊于斗牛之间。）</p>
-<p>赤壁江上烟波茫茫</p>
-<p>（《赤壁赋》：于是饮酒乐甚，扣舷而歌之，歌曰：“桂棹兮兰桨，击空明兮溯流光；渺渺兮予怀，望美人兮天一方。”）</p>
-<p>空明溯流光</p>
-<p>渺渺望却天一方</p>
-<p>（《赤壁赋》：西望夏口，东望武昌，山川相缪，郁乎苍苍。此非孟德之困于周郎者乎？）</p>
-<p>孟德东望武昌</p>
-<p>山川郁乎苍苍</p>
-<p>此非其曾困于周郎</p>
-<p>（《赤壁赋》：方其破荆州，下江陵，顺流而东也，舳舻千里，旌旗蔽空，酾酒临江，横槊赋诗，固一世之雄也，而今安在哉？）</p>
-<p>曾横槊赋诗 曾酾酒临江</p>
-<p>固一世之雄 而今已往</p>
-<p>扁舟旁 萧声黯荡 月色如霜 （《赤壁赋》：况吾与子渔樵于江渚之上，侣鱼虾而友麋鹿，驾一叶之扁舟，举匏樽以相属。）</p>
-<p>自忖古来 几人传唱</p>
-<p>人生梦一场</p>
-<p>几人能千古 流芳</p>
-<p>前窗  世间街巷 熙熙攘攘 为生计奔忙</p>
-<p>后堂 午时一晌 又添新篇章</p>
-<p>中房 我愿同赏 新桃旧妆 重拾破船桨</p>
-<p>哪日照斜阳</p>
-<p>同我一诉衷肠</p>
-<p>黄州冷雨绵长</p>
-<p>十年生死茫茫 （《江城子·乙卯正月二十日夜记梦》：十年生死两茫茫，不思量，自难忘。）</p>
-<p>明月夜中回望松冈 （《江城子·乙卯正月二十日夜记梦》：料得年年断肠处，明月夜，短松冈。）</p>
-<p>无处话凄凉 （《江城子·乙卯正月二十日夜记梦》：千里孤坟，无处话凄凉。）</p>
-<p>不思量也自难忘 （《江城子·乙卯正月二十日夜记梦》：十年生死两茫茫，不思量，自难忘。）</p>
-<p>（《江城子·乙卯正月二十日夜记梦》：夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，唯有泪千行。）</p>
-<p>夜来幽梦还乡</p>
-<p>轩窗独理红妆</p>
-<p>相顾无言唯泪千行</p>
-<p>何时断桥头 再叙段家常 （断桥：西湖十景之断桥残雪）</p>
-<p>千秋后再把 佳人传唱 （佳人：指前妻王弗）</p>
-<p>雪堂上 斯人何方 天地纵广 （雪堂：苏东坡到黄州后建的书房，取名雪堂）</p>
-<p>转眼又成几家沙场</p>
-<p>驾舟自启航 （《临江仙·夜归临皋》：小舟从此逝，江海寄余生。）</p>
-<p>倚仗迎天光 凄怆 （《临江仙·夜归临皋》：敲门都不应，倚杖听江声。）</p>
-<p>过往 年少轻狂 牵黄擎苍 千骑卷平冈 （《江城子·密州出猎》：老夫聊发少年狂，左牵黄，右擎苍。锦帽貂裘，千骑卷平冈。）</p>
-<p>何妨 两鬓微霜 西北射天狼 （《江城子·密州出猎》：酒酣胸胆尚开张，鬓微霜，又何妨。）</p>
-<p>思乡 天各一方 各自怀想 不如两相忘</p>
-<p>独静座草堂</p>
-<p>问何时遣冯唐 （《江城子·密州出猎》：持节云中，何日遣冯唐？）</p>
-<p>本性放荡 添七分狂</p>
-<p>变了当年模样</p>
-<p>四顾相望 近乎咫尺 远在山岗</p>
-<p>湖水微凉 断桥累霜 秋色染苏堤上 （断桥：同上；苏堤：苏东坡为西湖的防洪事业修的一个堤坝，后人取名苏堤）</p>
-<p>人生一世戏一场 何必防</p>
-<p>湖光 日短梦长 万籁绝响 举目是残阳</p>
-<p>暗伤 四面放网 箭已在弦上</p>
-<p>虚晃 对饮欢畅 斗酒无量 实则心彷徨</p>
-<p>静待黄衣郎 （《卖炭翁》：翩翩两骑来是谁？黄衣使者白衫儿。白居易本意指的是朝中的宦官，因身着黄衣所以称作“黄衣使者白衫儿”。但是这里用作指能向朝廷反映民间疾苦的官员，并非出处本意）</p>
-<p>一诉世间沧桑</p>
+              <h1 id="第一部分-基础知识">第一部分 基础知识</h1>
+<h2 id="第二章-算法基础">第二章 算法基础</h2>
+<h3 id="使用循环不变式证明算法正确性">使用循环不变式证明算法正确性</h3>
+<ul>
+<li>
+<p>初始化：循环的第一次迭代之前，它为真。</p>
+</li>
+<li>
+<p>保持：如果循环的某次迭代之前它为真，那么下次迭代之前它仍为真。</p>
+</li>
+<li>
+<p>终止：在循环终止时，不变式为我们提供一个有用的性质，该性质有助于证明算法是正确的。</p>
+</li>
+</ul>
+<h3 id="设计算法浅谈分治">设计算法：浅谈分治</h3>
+<ul>
+<li>
+<p>算法一次或多次递归地调用其自身以解决紧密相关的若干子问题，这种算法叫分治。</p>
+</li>
+<li>
+<p>当一个算法包含对其自身的递归调用时，我们往往可以用 <strong>递归方程</strong> 或 <strong>递归式</strong> 来描述其运行时间。</p>
+</li>
+</ul>
+<h4 id="分治三部曲">分治三部曲</h4>
+<ul>
+<li>
+<p><strong>分解</strong>原问题为若干子问题，这些子问题是原问题的规模较小的实例。</p>
+</li>
+<li>
+<p><strong>解决</strong>这些子问题，递归地求解各子问题。然而，若子问题的规模足够小，则直接求解。</p>
+</li>
+<li>
+<p><strong>合并</strong>这些子问题的解成原问题的解。</p>
+</li>
+</ul>
+<h4 id="归并排序">归并排序</h4>
+<h5 id="归并排序的操作">归并排序的操作</h5>
+<ul>
+<li>
+<p><strong>分解</strong>：分解待排序的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个元素的序列成各具有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">n / 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mord">2</span></span></span></span> 个元素的两个子序列。</p>
+</li>
+<li>
+<p><strong>解决</strong>：使用归并排序递归地排序两个子序列。</p>
+</li>
+<li>
+<p><strong>合并</strong>：合并两个已排序的子序列以产生已排序的答案。</p>
+</li>
+</ul>
+<h5 id="归并排序的正确性">归并排序的正确性</h5>
+<ul>
+<li>通过维持以下不变式，执行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r - leftn + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个基本步骤：</li>
+</ul>
+<blockquote>
+<p>在开始第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>12</mn><mtext> </mtext><mn>17</mn></mrow><annotation encoding="application/x-tex">12~17</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mspace nobreak"> </span><span class="mord">1</span><span class="mord">7</span></span></span></span> 行 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">f</mi><mi mathvariant="bold">o</mi><mi mathvariant="bold">r</mi></mrow><annotation encoding="application/x-tex">\bold{for}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.10903em;">f</span><span class="mord mathbf">o</span><span class="mord mathbf">r</span></span></span></span></span> 循环的每次迭代时，子数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn...k - 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 按从小到大的顺序包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mn>1...</mn><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">L[1...n_1 + 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>[</mo><mn>1...</mn><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">R[1...n_2 + 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">k - leftn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span></span></span></span> 个最小元素。进而，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">R[j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span> 是各自所在数组中未被复制回数组A的最小元素。</p>
+</blockquote>
+<p><strong>初始化</strong>：循环的第一次迭代之前，有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">k = leftn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span></span></span></span>，所以子数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn..k - 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 为空。这个空的数组包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k - leftn = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 个最小元素。又因为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>=</mo><mi>j</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i = j = 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，所以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">R[j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span> 都是各自所在数组中未被复制回数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span> 的最小元素。</p>
+<p><strong>保持</strong>：为了理解每次迭代都维持循环不变式，首先假设 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>≤</mo><mi>R</mi><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i] \leq R[j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>。这时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span> 是未被复制回数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span> 的最小元素。因为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn...k - 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">k - leftn</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span></span></span></span> 个最小元素，所以在第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>14</mn></mrow><annotation encoding="application/x-tex">14</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">4</span></span></span></span> 行将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span></span></span></span> 复制到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">A[k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span> 之后，子数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>k</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn...k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span> 将包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k - leftn + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个最小元素。增加 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的值（ 在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="bold">f</mi><mi mathvariant="bold">o</mi><mi mathvariant="bold">r</mi></mrow><annotation encoding="application/x-tex">\bold{for}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbf" style="margin-right:0.10903em;">f</span><span class="mord mathbf">o</span><span class="mord mathbf">r</span></span></span></span></span> 循环中更新 ）和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 的值后，为下次迭代重新建立了该循环不变式。反之，若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mi>i</mi><mo>]</mo><mo>&gt;</mo><mi>R</mi><mo>[</mo><mi>j</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">L[i] &gt; R[j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>，则第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>16</mn><mtext> </mtext><mn>17</mn></mrow><annotation encoding="application/x-tex">16~17</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">6</span><span class="mspace nobreak"> </span><span class="mord">1</span><span class="mord">7</span></span></span></span> 行执行适当的操作来维持该循环不变式。</p>
+<p><strong>终止</strong>：终止时 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k = rightn + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。根据循环不变式，子数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>k</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn...k - 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>[</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>n</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">A[leftn...rightn]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span> 且按从小到大的顺序包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>[</mo><mn>1...</mn><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">L[1...n_1 + 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">[</span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>[</mo><mn>1...</mn><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">R[1...n_2 + 1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord">1</span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>=</mo><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>n</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k - leftn = rightn - leftn + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个最小元素。数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 一起包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msub><mi>n</mi><mn>2</mn></msub><mo>+</mo><mi mathvariant="normal">２</mi><mo>=</mo><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>n</mi><mo>−</mo><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>n</mi><mo>+</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n_1 + n_2 +２ = rightn - leftn + 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mord cjk_fallback">２</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">t</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 个元素。除两个最大的元素以外，其他所有元素都已被复制回数组 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span></span></span></span>，这两个最大的元素就是哨兵。（ 值为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∞</mi></mrow><annotation encoding="application/x-tex">∞</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord">∞</span></span></span></span> ）</p>
+<h3 id="思考题在归并排序中对小数组采用插入排序">思考题：在归并排序中对小数组采用插入排序</h3>
+<p>虽然归并排序的最坏情况运行时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta (n \log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>，而插入排序的最坏情况运行时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi><mo>(</mo><msup><mi>n</mi><mn>3</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">\theta (n^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，但是插入排序中的常量因子可能使得它在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 较小时，在许多机器上实际运行得更快。</p>
+<p>因此，在归并排序中，当子问题变得足够小时，采用插入排序来使递归的叶<strong>变粗</strong>是有意义的。考虑对归并排序的一种修改，其中使用插入排序来排序长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mi>k</mi></mrow><annotation encoding="application/x-tex">n/k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 个子表，然后使用标准的合并机制来合并这些子表，这里的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 是一个待定的值。</p>
+<p>（代码待填坑）</p>
 
             </div>
             
@@ -444,7 +660,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://BlueSu008.github.io/lesslessqi-huang-greatergreater-tian-ci/" title="《栖凰》填词——《彷徨》">https://BlueSu008.github.io/lesslessqi-huang-greatergreater-tian-ci/</a>
+      <a href="https://BlueSu008.github.io/lesslesssuan-fa-dao-lun-greatergreater-xue-xi-bi-ji/" title="《算法导论》学习笔记">https://BlueSu008.github.io/lesslesssuan-fa-dao-lun-greatergreater-xue-xi-bi-ji/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -457,15 +673,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="《听我说谢谢你》填词——《贯老师训练你》" href="https://BlueSu008.github.io/lesslessting-wo-shuo-xie-xie-ni-greatergreater-tian-ci-lesslessguan-lao-shi-xun-lian-ni-greatergreater/">《听我说谢谢你》填词——《贯老师训练你》</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="《听我说谢谢你》填词——《贯老师训练你》" href="https://BlueSu008.github.io/lesslessting-wo-shuo-xie-xie-ni-greatergreater-tian-ci-lesslessguan-lao-shi-xun-lian-ni-greatergreater/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="《不老梦》填词——《草庐梦》" href="https://BlueSu008.github.io/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/">《不老梦》填词——《草庐梦》</a>
-        <a class="nav-mobile-next" title="《不老梦》填词——《草庐梦》" href="https://BlueSu008.github.io/lesslessbu-lao-meng-greatergreater-tian-ci-lesslesscao-lu-meng-greatergreater/">下一篇</a>
+        <a class="nav-pc-next" title="《多情岸》填词" href="https://BlueSu008.github.io/4Tmm9v_a3/">《多情岸》填词</a>
+        <a class="nav-mobile-next" title="《多情岸》填词" href="https://BlueSu008.github.io/4Tmm9v_a3/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
