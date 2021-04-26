@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="回首向来萧瑟处，归去，也无风雨也无晴。">
 <meta name="theme-color" content="#000">
-<title>《冠世一战》填词——《渭水彼岸》 | BlueSu 的博客</title>
+<title>表达式求值 题解 | BlueSu 的博客</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1619441026381">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,8 +41,8 @@
 
 
 
-  <meta name="description" content="《冠世一战》填词——《渭水彼岸》" />
-  <meta name="keywords" content="填词" />
+  <meta name="description" content="表达式求值 题解" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -193,7 +193,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -259,6 +260,208 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E9%9D%A2%E8%BD%AC%E8%BD%BD">题面转载</a></li>
+<li><a href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF">解题思路</a></li>
+<li><a href="#%E8%A7%A3%E9%A2%98%E8%BF%87%E7%A8%8B">解题过程</a>
+<ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC-ver0%E6%A0%B7%E4%BE%8B%E6%9C%AA%E8%BF%87">代码版本 Ver.0，样例未过</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC-ver1%E5%BE%97%E5%88%86-0">代码版本 Ver.1，得分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%89%88%E6%9C%AC-ver2%E5%BE%97%E5%88%86-100">代码版本 Ver.2，得分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn></mrow><annotation encoding="application/x-tex">100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span></a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93%E6%94%B6%E8%8E%B7">总结收获</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -346,8 +549,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://BlueSu008.github.io/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/">
-      《冠世一战》填词——《渭水彼岸》
+    <a class="post-title-link" href="https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/">
+      表达式求值 题解
     </a>
   </h1>
   <div class="post-meta">
@@ -355,36 +558,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-02-05 21:35:53">2021-02-05</span>
+      <span class="publish-time" data-t="2021-04-26 18:39:04">2021-04-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://BlueSu008.github.io/6blYZld-m/">
-        <span>填词</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>9<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>603<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1752<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/" data-flag-title="《冠世一战》填词——《渭水彼岸》" class="meta-item pc-show leancloud_visitors">
+    <span id="/biao-da-shi-qiu-zhi-ti-jie/" data-flag-title="表达式求值 题解" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -393,50 +583,430 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>虽千万人逆我之 我仍执着</p>
-<p>北伐行遍九州劳途奔波</p>
-<p>刀光剑影里是谁人旗帜艳艳如烈火</p>
-<p>且看我南征北战 七擒孟获</p>
-<p>奈何抵不住这天雨降祸 （火熄上方谷）</p>
-<p>涉局乱世天下 不如我 隆中高卧</p>
-<p>寒舍三顾 此生有幸遇明主 半生缘 （三顾茅庐）</p>
-<p>盖世绝学 宏图业 知音难觅难诉愿</p>
-<p>鹰凤瑜庶 亦敌亦友却难躲沙场寒光剑 （司马懿——鹰视狼顾；庞统——凤雏；周瑜；徐庶）</p>
-<p>逆天难 风未还 所求仍不得圆（借东风）</p>
-<p>谨慎将上表琢磨 （《出师表》）</p>
-<p>巧思控沙场风波</p>
-<p>上方谷 华容道 五丈原 落凤坡 （火熄上方谷 兵败华容道 秋风五丈原 凤陨落凤坡）</p>
-<p>彼岸 何日能破</p>
-<p>虽千万人逆我之 我仍执着</p>
-<p>北伐行遍九州劳途奔波</p>
-<p>刀光剑影里是谁人旗帜艳艳如烈火</p>
-<p>且看我南征北战 七擒孟获</p>
-<p>奈何抵不住这天雨降祸</p>
-<p>涉局乱世天下 不如我 隆中高卧</p>
-<p>草船借箭 迷迷蒙蒙曹营前 谁周旋</p>
-<p>锦囊妙计 临阵前拆封视之 得胜还</p>
-<p>挥泪决断 军法无情 只不忍下令一声斩 （挥泪斩马谡）</p>
-<p>为复汉 鞠躬尽瘁又抵千万难</p>
-<p>智斗火烧博望坡</p>
-<p>武斗空城琴弦破 （空城破敌）</p>
-<p>阴与阳 柔与刚 强与弱 对与错 （祁连禳星 魏延之死 魏强蜀弱 马谡之死）</p>
-<p>彼岸 克日一搏</p>
-<p>虽千万人逆我之 我仍执着</p>
-<p>北伐行遍九州劳途奔波</p>
-<p>刀光剑影里是谁人旗帜艳艳如烈火</p>
-<p>且看我南征北战 七擒孟获</p>
-<p>奈何抵不住这天雨降祸</p>
-<p>涉局乱世天下 不如我 隆中高卧</p>
-<p>秋风 五丈原上多忧愁 （秋风五丈原）</p>
-<p>清雨 偏临上方口 （火熄上方谷）</p>
-<p>风声 萧瑟帐中灯幽幽 （既指五丈原禳星，也是丞相深夜理事的场景）</p>
-<p>彼岸 何人守 （指最终没能打下渭水北岸）</p>
-<p>虽千万人逆我之 我仍执着</p>
-<p>哪世再出茅庐付身家国</p>
-<p>放眼大汉山河 再对策 奇谋安定九州 （隆中对）</p>
-<p>且看我南征北战 七擒孟获</p>
-<p>拼此生 尚不知 孰功孰过</p>
-<p>遥望渭水彼岸 留后世多少遗憾</p>
+              <h3 id="题面转载">题面转载</h3>
+<p><strong>题目描述</strong></p>
+<p>将一个算式表达式的值求出来，在表达式中，有加、减、乘、除 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 个运算符，还有括号（括号匹配无误），其余的为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>−</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">0-9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">9</span></span></span></span> 之间的某个正整数，例如表达式为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9</mn><mo>−</mo><mo>(</mo><mn>6</mn><mo>+</mo><mn>3</mn><mo>∗</mo><mn>5</mn><mo>)</mo><mi mathvariant="normal">/</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">9-(6+3 * 5 )/3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">5</span><span class="mclose">)</span><span class="mord">/</span><span class="mord">3</span></span></span></span> ，则该表达式的值为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span>。</p>
+<p><strong>输入</strong></p>
+<p>输入文件即为一行表达式</p>
+<p><strong>输出</strong></p>
+<p>输出文件即为表达式的值，结果保留2位小数</p>
+<p><strong>输入样例</strong></p>
+<p><code>9-(6+3*5)/3</code></p>
+<p><strong>输出样例</strong></p>
+<p><code>2.00</code></p>
+<h3 id="解题思路">解题思路</h3>
+<p>使用栈模拟算式运算解决。对于每个字符进行分情况处理。</p>
+<h3 id="解题过程">解题过程</h3>
+<h4 id="代码版本-ver0样例未过">代码版本 Ver.0，样例未过</h4>
+<p>此版代码使用在题解的基础上进行重构的细节，在结构上没有进行任何优化，就是一版刚写出来的热铁。最后调了两晚上发现是卡在了自己加的一个关于预防栈空的特判，然而还是过不了样例。没有进行存档。</p>
+<h4 id="代码版本-ver1得分-0">代码版本 Ver.1，得分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用时</th>
+<th style="text-align:center">内存</th>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">文件大小</th>
+<th style="text-align:center">提交时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">13ms</td>
+<td style="text-align:center">2876kb</td>
+<td style="text-align:center">C++</td>
+<td style="text-align:center">2.3kb</td>
+<td style="text-align:center">2021-04-22 20:09:41</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试点编号</th>
+<th style="text-align:center">分数</th>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">用时</th>
+<th style="text-align:center">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Test #1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Runtime Error</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">--</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Runtime Error</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">--</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Runtime Error</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">--</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Wrong Answer</td>
+<td style="text-align:center">1ms</td>
+<td style="text-align:center">2648KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Wrong Answer</td>
+<td style="text-align:center">0ms</td>
+<td style="text-align:center">2848KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #6</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">Wrong Answer</td>
+<td style="text-align:center">12ms</td>
+<td style="text-align:center">2876KB</td>
+</tr>
+</tbody>
+</table>
+<p>这版代码中比起 Ver.0 又进行了很多修改，主要是从结构上几乎重构了 Ver.0 的关于非数字的判断部分。新增了关于右括号的特判和进行计算的函数 <code>work</code> ，对比较运算符优先级的函数进行了部分修改。</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;climits&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+using namespace std;
+
+string s ;
+stack &lt; char &gt; operatorX ;
+stack &lt; double &gt; value ;
+inline int isBigger ( char op1 , char op2 ) ;
+inline void work () ;
+inline double calculate ( double x , double y , char op ) ;
+
+int main () {
+
+    cin &gt;&gt; s ;
+    int len = s.size () ;
+    s = &quot; &quot; + s ;
+
+    double num = 0 ;
+    operatorX.push ( '!' ) ;
+    for ( int i = 1 ; i &lt;= len ; i++ ) {
+        if ( isdigit ( s[i] ) ) {
+            value.push ( s[i] - '0' ) ;
+        }
+        else {
+            if ( s[i] == ')' ) {
+                // cout &lt;&lt; &quot;qwq&quot; &lt;&lt; endl ;
+                work () ;
+            }
+            int qwq = isBigger ( operatorX.top () , s[i] ) ;
+            if ( qwq ) {
+                // cout &lt;&lt; &quot;qaq&quot; &lt;&lt; endl ;
+                work () ;
+            }
+            else {
+                operatorX.push ( s[i] ) ;
+                // cout &lt;&lt; s[i] &lt;&lt; endl ;
+            }
+
+            if ( operatorX.size () &amp;&amp; operatorX.top () == '(' &amp;&amp; s[i] == ')' ) {
+                operatorX.pop () ;
+            }
+        }
+    }
+
+    while ( ! operatorX.empty () &amp;&amp; operatorX.top () != '!' ) {
+        work () ;
+    }
+
+    printf ( &quot;%.2lf&quot; , value.top () ) ;
+
+    return 0 ;
+}
+
+inline int isBigger ( char op1 , char op2 ) {
+    if ( op1 == '(' || op1 == '!' ) {
+        return 0 ;
+    }
+    else if ( op2 == '(' ) {
+        return 0 ;
+    }
+
+    if ( op1 == '+' || op1 == '-' ) {
+        if ( op2 == '*' || op2 == '/' ) {
+            return 0 ;
+        }
+        else {
+            return 1 ;
+        }
+    }
+    else {
+        return 1 ;
+    }
+}
+
+inline void work () {
+    char op = operatorX.top () ;
+    operatorX.pop () ;
+    double x = value.top () ;
+    value.pop () ;
+    double y = value.top () ;
+    value.pop () ;
+    value.push ( calculate ( y , x , op ) ) ;
+    // cout &lt;&lt; &quot; / &quot; &lt;&lt; calculate ( y , x , op ) &lt;&lt; &quot; &quot; &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; &quot; &quot; &lt;&lt; op &lt;&lt; &quot; / &quot; &lt;&lt; endl ;
+}
+
+inline double calculate ( double x , double y , char op ) {
+    if ( op == '+' ) {
+        return x + y ;
+    }
+    else if ( op == '-' ) {
+        return x - y ;
+    }
+    else if ( op == '*' ) {
+        return x * y ;
+    }
+    else {
+        return x / y ;
+    }
+}
+
+/*
+9-(6+3*5)/3
+*/
+</code></pre>
+<p>没有对代码做很多的优化，毕竟时间匆忙，没来得及做修改。可以明显看到 <code>isBigger</code> 函数的返回值可以用布尔型，而且可以把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 改为 <code>false</code> ，把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 改为 <code>true</code> 。</p>
+<h4 id="代码版本-ver2得分-100">代码版本 Ver.2，得分 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>100</mn></mrow><annotation encoding="application/x-tex">100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span></span></span></span></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">用时</th>
+<th style="text-align:center">内存</th>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">文件大小</th>
+<th style="text-align:center">提交时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">23ms</td>
+<td style="text-align:center">2872kb</td>
+<td style="text-align:center">C++</td>
+<td style="text-align:center">3.7kb</td>
+<td style="text-align:center">2021-04-22 22:40:58</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">测试点编号</th>
+<th style="text-align:center">分数</th>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">用时</th>
+<th style="text-align:center">内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Test #1</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">4ms</td>
+<td style="text-align:center">2716KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #2</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">5ms</td>
+<td style="text-align:center">2648KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #3</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">0ms</td>
+<td style="text-align:center">2612KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #4</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">7ms</td>
+<td style="text-align:center">2848KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #5</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">6ms</td>
+<td style="text-align:center">2628KB</td>
+</tr>
+<tr>
+<td style="text-align:center">Test #6</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">Accepted</td>
+<td style="text-align:center">1ms</td>
+<td style="text-align:center">2872KB</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>这版代码对非数字的字符判断中的右括号判断制定了更详细的特判，以防RE。</p>
+</li>
+<li>
+<p>精简了对于非数字字符的判断步骤。</p>
+</li>
+<li>
+<p>对于 <code>work</code> 函数制定了更详细的运算规则，主要是特判两个减号或两个除号，一减一加这三方面。其实这里是主要的WA点。</p>
+</li>
+</ol>
+<p>当然，遗憾也是有的。这里有一个bug，因为时间原因没有修。比如，这个代码对于 <code>12/6*3/2-5+7</code> 的输出就是错的。正确答案 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> ，代码输出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2.50</mn></mrow><annotation encoding="application/x-tex">2.50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord">5</span><span class="mord">0</span></span></span></span> 。 <s>然后关于 <code>isBigger</code> 函数的返回值还是没有修</s> 计划有(jiu)空(zhe)的(me)时(zhao)候(ba)修一下。</p>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;climits&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+using namespace std;
+
+string s ;
+stack &lt; char &gt; operatorX ;
+stack &lt; double &gt; value ;
+inline int isBigger ( char op1 , char op2 ) ;
+inline void work () ;
+inline double calculate ( double x , double y , char op ) ;
+
+int main () {
+
+    cin &gt;&gt; s ;
+    int len = s.size () ;
+    s = &quot; &quot; + s ;
+
+    double num = 0 ;
+    operatorX.push ( '!' ) ;
+    for ( int i = 1 ; i &lt;= len ; i++ ) {
+        if ( isdigit ( s[i] ) ) {
+            value.push ( s[i] - '0' ) ;
+        }
+        else {
+            if ( s[i] == ')' ) {
+                while ( ! operatorX.empty () &amp;&amp; operatorX.top () != '(' ) {
+                    work () ;
+                }
+                if ( operatorX.top () == '(' ) {
+                    operatorX.pop () ;
+                }
+                continue ;
+            }
+
+            int qwq = isBigger ( operatorX.top () , s[i] ) ;
+            if ( qwq ) {
+                work () ;
+            }
+            operatorX.push ( s[i] ) ;
+            
+            if ( operatorX.size () &amp;&amp; operatorX.top () == '(' &amp;&amp; s[i] == ')' ) {
+                operatorX.pop () ;
+            }
+        }
+    }
+
+    while ( operatorX.size () &gt; 1 ) {
+        work () ;
+    }
+
+    printf ( &quot;%.2lf&quot; , value.top () ) ;
+
+    return 0 ;
+}
+
+inline int isBigger ( char op1 , char op2 ) {
+    if ( op1 == '(' || op1 == '!' ) {
+        return 0 ;
+    }
+    else if ( op2 == '(' ) {
+        return 0 ;
+    }
+
+    if ( op1 == '+' || op1 == '-' ) {
+        if ( op2 == '*' || op2 == '/' ) {
+            return 0 ;
+        }
+        else {
+            return 1 ;
+        }
+    }
+    else {
+        return 1 ;
+    }
+}
+
+inline void work () {
+    char op = operatorX.top () ;
+    operatorX.pop () ;
+    double x = value.top () ;
+    value.pop () ;
+    double y = value.top () ;
+    value.pop () ;
+
+    if ( operatorX.top () == '-' &amp;&amp; op == '-' ) {
+        value.push ( y + x ) ;
+        return ;
+    }
+    else if ( operatorX.top () == '/' &amp;&amp; op == '/' ) {
+        value.push ( y * x ) ;
+        return ;
+    }
+    else if ( operatorX.top () == '-' &amp;&amp; op == '+' ) {
+        value.push ( y - x ) ;
+        return ;
+    }
+    else if ( operatorX.top () == '/' &amp;&amp; op == '*' ) {
+        value.push ( y / x ) ;
+        return ;
+    }
+    value.push ( calculate ( y , x , op ) ) ;
+}
+
+inline double calculate ( double x , double y , char op ) {
+    if ( op == '+' ) {
+        return x + y ;
+    }
+    else if ( op == '-' ) {
+        return x - y ;
+    }
+    else if ( op == '*' ) {
+        return x * y ;
+    }
+    else {
+        return x / y ;
+    }
+}
+
+/*
+9-(6+3*5)/3
+12/6*3/2-5+7
+*/
+</code></pre>
+<h3 id="总结收获">总结收获</h3>
+<p>这其实也不是我第一次调大模拟，也不是我第一次调算式求值。主要是这次没怎么参考题解，大部分都是自己一点一点改出来的。之前调过一道 <a href="https://www.luogu.com.cn/problem/P1981">P1981 NOIP2013 普及组 表达式求值</a> ，然而那道题只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span></span></span></span> 两种运算符且没有括号，所以会简单得多。对于我来说，在算式求值这类题上，这次的难度跨度是巨大的。本来还考虑过树形指针求解，但是仔细想了想，其实树形结构在运算速度和程序复杂度（单纯的编写难度）上都略逊于栈，所以没有采用树形存储。</p>
+<p>大模拟没有什么高深的算法，全都是一个个特判和模拟过程，难度在于理清思绪，不要写这个模块时想另一个，干事情一定要有顺序，不要多个步骤混着写，一定是有条理、有安排的。在写代码的时候一定要注意分模块，当然也不能分模块分得太过了，模块太大和太碎都是忌讳。还有就是，如果连夜调题，一定写注释，因为明天你再回来看代码就一脸懵，啥也不知道，那昨天晚上的进展就功亏一篑了。注释最好是英文的，一是因为不同的编译器对中文的转码不一样，容易出现乱码；二是方便切换输入法。</p>
 
             </div>
             
@@ -449,7 +1019,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://BlueSu008.github.io/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/" title="《冠世一战》填词——《渭水彼岸》">https://BlueSu008.github.io/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/</a>
+      <a href="https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/" title="表达式求值 题解">https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -458,21 +1028,15 @@
   </ul>
   <div class="tags">
     
-      <a href="https://BlueSu008.github.io/6blYZld-m/"># 填词</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="思辰笔记" href="https://BlueSu008.github.io/si-chen-bi-ji/">思辰笔记</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="思辰笔记" href="https://BlueSu008.github.io/si-chen-bi-ji/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="《天行九歌》填词——《醉行酒歌》" href="https://BlueSu008.github.io/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/">《天行九歌》填词——《醉行酒歌》</a>
-        <a class="nav-mobile-next" title="《天行九歌》填词——《醉行酒歌》" href="https://BlueSu008.github.io/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/">下一篇</a>
+        <a class="nav-pc-next" title="《组合数学》学习笔记" href="https://BlueSu008.github.io/lesslesszu-he-shu-xue-greatergreater-xue-xi-bi-ji/">《组合数学》学习笔记</a>
+        <a class="nav-mobile-next" title="《组合数学》学习笔记" href="https://BlueSu008.github.io/lesslesszu-he-shu-xue-greatergreater-xue-xi-bi-ji/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
