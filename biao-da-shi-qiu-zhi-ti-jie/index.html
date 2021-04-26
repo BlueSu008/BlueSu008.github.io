@@ -9,7 +9,7 @@
 <meta name="description" content="回首向来萧瑟处，归去，也无风雨也无晴。">
 <meta name="theme-color" content="#000">
 <title>表达式求值 题解 | BlueSu 的博客</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1619441026381">
+<link rel="shortcut icon" href="/favicon.ico?v=1619445131749">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -211,7 +211,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -280,6 +280,7 @@
 </ul>
 </li>
 <li><a href="#%E6%80%BB%E7%BB%93%E6%94%B6%E8%8E%B7">总结收获</a></li>
+<li><a href="#%E5%90%8E%E6%9C%9F%E8%AE%B0%E5%BD%95">后期记录</a></li>
 </ul>
 </li>
 </ul>
@@ -569,7 +570,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1752<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1893<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
@@ -1007,6 +1008,10 @@ inline double calculate ( double x , double y , char op ) {
 <h3 id="总结收获">总结收获</h3>
 <p>这其实也不是我第一次调大模拟，也不是我第一次调算式求值。主要是这次没怎么参考题解，大部分都是自己一点一点改出来的。之前调过一道 <a href="https://www.luogu.com.cn/problem/P1981">P1981 NOIP2013 普及组 表达式求值</a> ，然而那道题只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo></mrow><annotation encoding="application/x-tex">+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">+</span></span></span></span> 两种运算符且没有括号，所以会简单得多。对于我来说，在算式求值这类题上，这次的难度跨度是巨大的。本来还考虑过树形指针求解，但是仔细想了想，其实树形结构在运算速度和程序复杂度（单纯的编写难度）上都略逊于栈，所以没有采用树形存储。</p>
 <p>大模拟没有什么高深的算法，全都是一个个特判和模拟过程，难度在于理清思绪，不要写这个模块时想另一个，干事情一定要有顺序，不要多个步骤混着写，一定是有条理、有安排的。在写代码的时候一定要注意分模块，当然也不能分模块分得太过了，模块太大和太碎都是忌讳。还有就是，如果连夜调题，一定写注释，因为明天你再回来看代码就一脸懵，啥也不知道，那昨天晚上的进展就功亏一篑了。注释最好是英文的，一是因为不同的编译器对中文的转码不一样，容易出现乱码；二是方便切换输入法。</p>
+<p>哦对了，还有特别重要的一点，就是要学会Hack自己的代码。当觉得某个语句不太对的时候，有的时候，可能这道题已经过了，但还是想想办法能不能Hack掉。这很有助于自己能力的提升。</p>
+<h3 id="后期记录">后期记录</h3>
+<p>那个Hack没过的问题是我的锅，代码没问题，只是因为里面出现了一个12，是两位数，而代码不能处理两位数，所以错了。</p>
+<p>然后关于 <code>isBigger</code> 函数的返回值：已经修好啦！qwq</p>
 
             </div>
             
@@ -1031,6 +1036,10 @@ inline double calculate ( double x , double y , char op ) {
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="中缀表达式转后缀表达式 题解" href="https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/">中缀表达式转后缀表达式 题解</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="中缀表达式转后缀表达式 题解" href="https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -2070,6 +2079,29 @@ inline double calculate ( double x , double y , char op ) {
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/"" data-c="
+          &lt;h3 id=&#34;题面转载&#34;&gt;题面转载&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;将一个中缀表达式转换为后缀表达式，其中中缀表达式中数全为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;9&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1-9&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.72777em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;9&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 的正整数，且运算符为加、减、乘、整除，限定符为圆括号&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输入&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入文件为一行，即中缀表达式，长度不超过 $ 1000 $&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;输出&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输出文件为一行，即为后缀表达式形式&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;样例输入&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;7-(2+3*2)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;样例输出&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;7232*+-&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;解题思路&#34;&gt;解题思路&lt;/h3&gt;
+&lt;p&gt;使用指针实现二叉树模拟算式（其实是一个符号树）并进行后序遍历。对于一个符号树，每个节点或存放符号或存放数值（操作数），每个节点的权值就是它的子树所表示的表达式的计算结果。由此可知，对于一个符号树，前序遍历就是前缀表达式，中序遍历就是中缀表达式，后序遍历就是后缀表达式。&lt;/p&gt;
+&lt;p&gt;如何构建一颗符号树？&lt;/p&gt;
+&lt;h3 id=&#34;解题过程&#34;&gt;解题过程&lt;/h3&gt;
+&lt;p&gt;真的是一言难尽啊。&lt;/p&gt;
+&lt;h4 id=&#34;part1-栈&#34;&gt;Part1. 栈&lt;/h4&gt;
+&lt;h5 id=&#34;part1-ver1得分-40&#34;&gt;Part1. Ver.1，得分 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;40&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;40&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/h5&gt;
+">中缀表达式转后缀表达式 题解</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/"" data-c="
           &lt;h3 id=&#34;题面转载&#34;&gt;题面转载&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
@@ -2495,6 +2527,10 @@ inline double calculate ( double x , double y , char op ) {
 &lt;h3 id=&#34;总结收获&#34;&gt;总结收获&lt;/h3&gt;
 &lt;p&gt;这其实也不是我第一次调大模拟，也不是我第一次调算式求值。主要是这次没怎么参考题解，大部分都是自己一点一点改出来的。之前调过一道 &lt;a href=&#34;https://www.luogu.com.cn/problem/P1981&#34;&gt;P1981 NOIP2013 普及组 表达式求值&lt;/a&gt; ，然而那道题只有 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;×&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\times&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.66666em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;×&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.66666em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 两种运算符且没有括号，所以会简单得多。对于我来说，在算式求值这类题上，这次的难度跨度是巨大的。本来还考虑过树形指针求解，但是仔细想了想，其实树形结构在运算速度和程序复杂度（单纯的编写难度）上都略逊于栈，所以没有采用树形存储。&lt;/p&gt;
 &lt;p&gt;大模拟没有什么高深的算法，全都是一个个特判和模拟过程，难度在于理清思绪，不要写这个模块时想另一个，干事情一定要有顺序，不要多个步骤混着写，一定是有条理、有安排的。在写代码的时候一定要注意分模块，当然也不能分模块分得太过了，模块太大和太碎都是忌讳。还有就是，如果连夜调题，一定写注释，因为明天你再回来看代码就一脸懵，啥也不知道，那昨天晚上的进展就功亏一篑了。注释最好是英文的，一是因为不同的编译器对中文的转码不一样，容易出现乱码；二是方便切换输入法。&lt;/p&gt;
+&lt;p&gt;哦对了，还有特别重要的一点，就是要学会Hack自己的代码。当觉得某个语句不太对的时候，有的时候，可能这道题已经过了，但还是想想办法能不能Hack掉。这很有助于自己能力的提升。&lt;/p&gt;
+&lt;h3 id=&#34;后期记录&#34;&gt;后期记录&lt;/h3&gt;
+&lt;p&gt;那个Hack没过的问题是我的锅，代码没问题，只是因为里面出现了一个12，是两位数，而代码不能处理两位数，所以错了。&lt;/p&gt;
+&lt;p&gt;然后关于 &lt;code&gt;isBigger&lt;/code&gt; 函数的返回值：已经修好啦！qwq&lt;/p&gt;
 ">表达式求值 题解</a>
       </div>
       
