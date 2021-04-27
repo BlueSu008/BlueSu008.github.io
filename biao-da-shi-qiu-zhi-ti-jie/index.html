@@ -9,7 +9,7 @@
 <meta name="description" content="回首向来萧瑟处，归去，也无风雨也无晴。">
 <meta name="theme-color" content="#000">
 <title>表达式求值 题解 | BlueSu 的博客</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1619535707825">
+<link rel="shortcut icon" href="/favicon.ico?v=1619535922312">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -2296,8 +2296,6 @@ int main () {
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;这版代码最大的改动就是把符号判断写成了一个独立的函数 &lt;code&gt;isBigger&lt;/code&gt; 。然后就是为了适应 &lt;code&gt;isBigger&lt;/code&gt; 函数一些细节上结构的变化。其实这版是一个中间的保存代码版本，此时已经在考虑重构了（虽然重构，但当时还是想用栈）&lt;/p&gt;
-&lt;h4 id=&#34;part-2-树形指针&#34;&gt;Part 2. 树形指针&lt;/h4&gt;
-&lt;p&gt;基于树型指针的算法是不能在线的&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
 #include &amp;lt;cstdio&amp;gt;
 #include &amp;lt;cmath&amp;gt;
@@ -2398,6 +2396,8 @@ inline bool isBigger ( char c1 , char c2 ) {
 123*+45*6+7*+
 */
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;part-2-树形指针&#34;&gt;Part 2. 树形指针&lt;/h4&gt;
+&lt;p&gt;基于树型指针的算法是不能在线的&lt;/p&gt;
 &lt;h5 id=&#34;代码版本-ver25样例未过&#34;&gt;代码版本 Ver.2.5，样例未过&lt;/h5&gt;
 &lt;p&gt;这个版本是我习惯的树型指针写法。这种写法的建树 &lt;code&gt;createTree&lt;/code&gt; 函数没有返回值，而是通过一个取地址的指针变量进行传值。但这种写法有个弊端：传参时间太长。所以在 Ver.3 版本中，将这一劣势进行了优化（其实就是看题解写的然后跟风）。&lt;/p&gt;
 &lt;p&gt;在写的过程中，遇到了很多奇奇怪怪的问题，以至于从21日晚到24日晚一直都在调这个。主要就是指针和递归位置还有括号处理三项。最后实在不行了，于24日凌晨重构。（这几天都在熬夜，经常是凌晨一两点）&lt;/p&gt;
