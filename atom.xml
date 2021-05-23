@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-04-27T15:05:25.392Z</updated>
+    <updated>2021-05-23T00:47:51.254Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,48 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[谷雨田]]></title>
+        <id>https://BlueSu008.github.io/gu-yu-tian/</id>
+        <link href="https://BlueSu008.github.io/gu-yu-tian/">
+        </link>
+        <updated>2021-05-23T00:06:49.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[随记]]></title>
+        <id>https://BlueSu008.github.io/sui-ji/</id>
+        <link href="https://BlueSu008.github.io/sui-ji/">
+        </link>
+        <updated>2021-05-22T02:40:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[惊鹊翻填]]></title>
+        <id>https://BlueSu008.github.io/liang-que-fan-tian/</id>
+        <link href="https://BlueSu008.github.io/liang-que-fan-tian/">
+        </link>
+        <updated>2021-05-16T10:00:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[祺祺让我填的词]]></title>
+        <id>https://BlueSu008.github.io/qi-qi-rang-wo-tian-de-ci/</id>
+        <link href="https://BlueSu008.github.io/qi-qi-rang-wo-tian-de-ci/">
+        </link>
+        <updated>2021-05-08T12:25:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[原创词 夜空的星]]></title>
+        <id>https://BlueSu008.github.io/yuan-chuang-ci-ye-kong-de-xing/</id>
+        <link href="https://BlueSu008.github.io/yuan-chuang-ci-ye-kong-de-xing/">
+        </link>
+        <updated>2021-05-05T13:48:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《双钰·南北》填词——《赋情·赤壁》]]></title>
+        <id>https://BlueSu008.github.io/fu-qing-chi-bi/</id>
+        <link href="https://BlueSu008.github.io/fu-qing-chi-bi/">
+        </link>
+        <updated>2021-05-05T09:03:46.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[中缀表达式转后缀表达式 题解]]></title>
         <id>https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/</id>
@@ -37,47 +79,5 @@
         <link href="https://BlueSu008.github.io/lesslesssuan-fa-dao-lun-greatergreater-xue-xi-bi-ji/">
         </link>
         <updated>2021-04-01T13:29:36.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《多情岸》填词]]></title>
-        <id>https://BlueSu008.github.io/4Tmm9v_a3/</id>
-        <link href="https://BlueSu008.github.io/4Tmm9v_a3/">
-        </link>
-        <updated>2021-03-07T15:45:46.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《九九八十一》填词——三国谋士篇（CP版）]]></title>
-        <id>https://BlueSu008.github.io/wJ0tnMGey/</id>
-        <link href="https://BlueSu008.github.io/wJ0tnMGey/">
-        </link>
-        <updated>2021-03-06T15:18:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[思辰笔记]]></title>
-        <id>https://BlueSu008.github.io/si-chen-bi-ji/</id>
-        <link href="https://BlueSu008.github.io/si-chen-bi-ji/">
-        </link>
-        <updated>2021-02-07T10:29:39.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《冠世一战》填词——《渭水彼岸》]]></title>
-        <id>https://BlueSu008.github.io/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/</id>
-        <link href="https://BlueSu008.github.io/lesslessguan-shi-yi-zhan-greatergreater-tian-ci-lesslesswei-shui-bi-an-greatergreater/">
-        </link>
-        <updated>2021-02-05T13:35:53.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《天行九歌》填词——《醉行酒歌》]]></title>
-        <id>https://BlueSu008.github.io/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/lesslesstian-xing-jiu-ge-greatergreater-tian-ci/">
-        </link>
-        <updated>2021-01-17T10:04:40.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《听我说谢谢你》填词——《贯老师训练你》]]></title>
-        <id>https://BlueSu008.github.io/lesslessting-wo-shuo-xie-xie-ni-greatergreater-tian-ci-lesslessguan-lao-shi-xun-lian-ni-greatergreater/</id>
-        <link href="https://BlueSu008.github.io/lesslessting-wo-shuo-xie-xie-ni-greatergreater-tian-ci-lesslessguan-lao-shi-xun-lian-ni-greatergreater/">
-        </link>
-        <updated>2021-01-16T03:07:11.000Z</updated>
     </entry>
 </feed>
