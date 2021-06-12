@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-05-29T02:13:55.066Z</updated>
+    <updated>2021-06-12T17:21:38.149Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,48 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[万神纪填词（古诗词版）]]></title>
+        <id>https://BlueSu008.github.io/wan-shen-ji-tian-ci-gu-shi-ci-ban/</id>
+        <link href="https://BlueSu008.github.io/wan-shen-ji-tian-ci-gu-shi-ci-ban/">
+        </link>
+        <updated>2021-06-11T14:52:38.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[大雪寄家书（续）]]></title>
+        <id>https://BlueSu008.github.io/da-xue-ji-jia-shu-xu/</id>
+        <link href="https://BlueSu008.github.io/da-xue-ji-jia-shu-xu/">
+        </link>
+        <updated>2021-06-09T14:48:34.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[凉夜主题曲]]></title>
+        <id>https://BlueSu008.github.io/liang-ye-zhu-ti-qu/</id>
+        <link href="https://BlueSu008.github.io/liang-ye-zhu-ti-qu/">
+        </link>
+        <updated>2021-06-07T12:58:27.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[彩虹和雨]]></title>
+        <id>https://BlueSu008.github.io/cai-hong-he-yu/</id>
+        <link href="https://BlueSu008.github.io/cai-hong-he-yu/">
+        </link>
+        <updated>2021-05-30T13:51:38.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[星愿 StarWish]]></title>
+        <id>https://BlueSu008.github.io/xing-yuan/</id>
+        <link href="https://BlueSu008.github.io/xing-yuan/">
+        </link>
+        <updated>2021-05-30T09:18:00.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记战争]]></title>
+        <id>https://BlueSu008.github.io/ji-zhan-zheng/</id>
+        <link href="https://BlueSu008.github.io/ji-zhan-zheng/">
+        </link>
+        <updated>2021-05-30T05:37:47.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[生日贺词]]></title>
         <id>https://BlueSu008.github.io/sheng-ri-he-ci/</id>
@@ -37,47 +79,5 @@
         <link href="https://BlueSu008.github.io/ti-jie-p6242-mo-ban-xian-duan-shu-3/">
         </link>
         <updated>2021-05-23T22:37:08.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[谷雨田]]></title>
-        <id>https://BlueSu008.github.io/gu-yu-tian/</id>
-        <link href="https://BlueSu008.github.io/gu-yu-tian/">
-        </link>
-        <updated>2021-05-23T00:06:49.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[原创词 夜空的星]]></title>
-        <id>https://BlueSu008.github.io/yuan-chuang-ci-ye-kong-de-xing/</id>
-        <link href="https://BlueSu008.github.io/yuan-chuang-ci-ye-kong-de-xing/">
-        </link>
-        <updated>2021-05-05T13:48:05.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[中缀表达式转后缀表达式 题解]]></title>
-        <id>https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/</id>
-        <link href="https://BlueSu008.github.io/zhong-zhui-biao-da-shi-zhuan-hou-zhui-biao-da-shi-ti-jie/">
-        </link>
-        <updated>2021-04-26T12:46:17.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[表达式求值 题解]]></title>
-        <id>https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/</id>
-        <link href="https://BlueSu008.github.io/biao-da-shi-qiu-zhi-ti-jie/">
-        </link>
-        <updated>2021-04-26T10:39:04.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《九九八十一》填词——三国谋士篇（CP版）]]></title>
-        <id>https://BlueSu008.github.io/wJ0tnMGey/</id>
-        <link href="https://BlueSu008.github.io/wJ0tnMGey/">
-        </link>
-        <updated>2021-03-06T15:18:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[思辰笔记]]></title>
-        <id>https://BlueSu008.github.io/si-chen-bi-ji/</id>
-        <link href="https://BlueSu008.github.io/si-chen-bi-ji/">
-        </link>
-        <updated>2021-02-07T10:29:39.000Z</updated>
     </entry>
 </feed>
