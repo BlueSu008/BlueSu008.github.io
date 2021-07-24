@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-06-19T02:35:49.908Z</updated>
+    <updated>2021-07-24T03:39:26.620Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -11,7 +11,21 @@
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
     <entry>
-        <title type="html"><![CDATA[《锦鲤抄》填词（蜀国版）]]></title>
+        <title type="html"><![CDATA[《LOSER》翻填（OI版）]]></title>
+        <id>https://BlueSu008.github.io/loser-fan-tian/</id>
+        <link href="https://BlueSu008.github.io/loser-fan-tian/">
+        </link>
+        <updated>2021-07-13T11:05:33.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《三体》读后感（叶文洁）]]></title>
+        <id>https://BlueSu008.github.io/lesslesssan-ti-greatergreater-du-hou-gan-xie-wen-ji/</id>
+        <link href="https://BlueSu008.github.io/lesslesssan-ti-greatergreater-du-hou-gan-xie-wen-ji/">
+        </link>
+        <updated>2021-06-20T14:34:09.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《锦鲤抄》填词（三国版）]]></title>
         <id>https://BlueSu008.github.io/jin-li-chao-fan-tian/</id>
         <link href="https://BlueSu008.github.io/jin-li-chao-fan-tian/">
         </link>
@@ -46,6 +60,13 @@
         <updated>2021-06-07T12:58:27.000Z</updated>
     </entry>
     <entry>
+        <title type="html"><![CDATA[《雨碎江南》填词（彩虹和雨）]]></title>
+        <id>https://BlueSu008.github.io/cai-hong-he-yu/</id>
+        <link href="https://BlueSu008.github.io/cai-hong-he-yu/">
+        </link>
+        <updated>2021-05-30T13:51:38.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[原创词 星愿 StarWish]]></title>
         <id>https://BlueSu008.github.io/xing-yuan/</id>
         <link href="https://BlueSu008.github.io/xing-yuan/">
@@ -58,26 +79,5 @@
         <link href="https://BlueSu008.github.io/ji-zhan-zheng/">
         </link>
         <updated>2021-05-30T05:37:47.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[原创词 生日贺词]]></title>
-        <id>https://BlueSu008.github.io/sheng-ri-he-ci/</id>
-        <link href="https://BlueSu008.github.io/sheng-ri-he-ci/">
-        </link>
-        <updated>2021-05-27T14:07:22.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《惊鹊》填词（毕业版）]]></title>
-        <id>https://BlueSu008.github.io/liang-que-fan-tian-bi-ye-ji-nian-ce/</id>
-        <link href="https://BlueSu008.github.io/liang-que-fan-tian-bi-ye-ji-nian-ce/">
-        </link>
-        <updated>2021-05-26T22:49:10.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《繁华唱遍》填词（追忆童年）]]></title>
-        <id>https://BlueSu008.github.io/lesslessfan-hua-chang-bian-greatergreater-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/lesslessfan-hua-chang-bian-greatergreater-tian-ci/">
-        </link>
-        <updated>2021-05-26T14:01:22.000Z</updated>
     </entry>
 </feed>
