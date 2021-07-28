@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-07-24T03:39:26.620Z</updated>
+    <updated>2021-07-28T03:18:57.767Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[二体]]></title>
+        <id>https://BlueSu008.github.io/er-ti/</id>
+        <link href="https://BlueSu008.github.io/er-ti/">
+        </link>
+        <updated>2021-07-27T06:11:29.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[《LOSER》翻填（OI版）]]></title>
         <id>https://BlueSu008.github.io/loser-fan-tian/</id>
@@ -72,12 +79,5 @@
         <link href="https://BlueSu008.github.io/xing-yuan/">
         </link>
         <updated>2021-05-30T09:18:00.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[原创词 记战争]]></title>
-        <id>https://BlueSu008.github.io/ji-zhan-zheng/</id>
-        <link href="https://BlueSu008.github.io/ji-zhan-zheng/">
-        </link>
-        <updated>2021-05-30T05:37:47.000Z</updated>
     </entry>
 </feed>
