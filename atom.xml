@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://BlueSu008.github.io</id>
     <title>BlueSu 的博客</title>
-    <updated>2021-09-15T14:50:03.326Z</updated>
+    <updated>2021-10-07T08:23:48.606Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://BlueSu008.github.io"/>
     <link rel="self" href="https://BlueSu008.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://BlueSu008.github.io/images/avatar.png</logo>
     <icon>https://BlueSu008.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, BlueSu 的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[原创组题 扔书运动]]></title>
+        <id>https://BlueSu008.github.io/yuan-chuang-zu-ti-reng-shu-yun-dong/</id>
+        <link href="https://BlueSu008.github.io/yuan-chuang-zu-ti-reng-shu-yun-dong/">
+        </link>
+        <updated>2021-10-06T14:22:33.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[中 秋 节]]></title>
+        <id>https://BlueSu008.github.io/zhong-qiu-jie/</id>
+        <link href="https://BlueSu008.github.io/zhong-qiu-jie/">
+        </link>
+        <updated>2021-09-21T02:04:44.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[原创题 黑暗森林]]></title>
         <id>https://BlueSu008.github.io/yuan-chuang-ti-hei-an-sen-lin/</id>
@@ -65,19 +79,5 @@
         <link href="https://BlueSu008.github.io/lesslesssan-ti-greatergreater-du-hou-gan-xie-wen-ji/">
         </link>
         <updated>2021-06-20T14:34:09.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《锦鲤抄》填词（三国版）]]></title>
-        <id>https://BlueSu008.github.io/jin-li-chao-fan-tian/</id>
-        <link href="https://BlueSu008.github.io/jin-li-chao-fan-tian/">
-        </link>
-        <updated>2021-06-18T13:22:07.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[《岁月成碑》填词（丞相版）]]></title>
-        <id>https://BlueSu008.github.io/sui-yue-cheng-bei-tian-ci/</id>
-        <link href="https://BlueSu008.github.io/sui-yue-cheng-bei-tian-ci/">
-        </link>
-        <updated>2021-06-13T12:55:46.000Z</updated>
     </entry>
 </feed>
